@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "tokaia-lanchonete"
+  "defaultProject": "tokaia-lanchonete",
+  "cli": {
+    "analytics": "7695d5f4-5f20-4fe2-b7b6-159e7cdf20b8"
+  }
 }

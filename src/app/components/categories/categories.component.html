@@ -1,0 +1,9 @@
+<h1>categorias</h1>
+
+<section class="listCategories">
+  <div *ngFor="let category of categories">
+    <div [ngStyle]="styleCardCategory()" class="thumbCategory" (click)="imprimeID(category.id)">
+      <span>{{category.nome}}</span>
+    </div>
+  </div>
+</section>

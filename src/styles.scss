@@ -115,3 +115,10 @@ $s-device: 480px;
 .row {
   @include row;
 }
+
+body {
+  background: #F4F4F0;
+  border: 8px solid #FDCB4D;
+  color: #000002;
+  height: 100vh;
+}
