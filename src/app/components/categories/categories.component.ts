@@ -8,24 +8,23 @@ import { TecprimedataService } from 'src/app/services/tecprimedata.service';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
-
   categories = [
     {
-      "id": 1,
-      "nome": "Hambúrgueres"
+      id: 1,
+      nome: 'Hambúrgueres',
     },
     {
-      "id": 2,
-      "nome": "Refrigerantes"
+      id: 2,
+      nome: 'Refrigerantes',
     },
     {
-      "id": 3,
-      "nome": "Sucos"
+      id: 3,
+      nome: 'Sucos',
     },
     {
-      "id": 4,
-      "nome": "Porções"
-    }
+      id: 4,
+      nome: 'Porções',
+    },
   ];
 
   constructor(private Tecprimedata: TecprimedataService) {
@@ -34,15 +33,8 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  imprimeID(id: number){
+  imprimeID(id: number) {
     console.log('id da categoria: ', id);
-
-  }
-
-  styleCardCategory() {
-    return {
-      'background': 'url(../../assets/images/categories/1.jpg)'
-    }
   }
 
   // getCategories() {

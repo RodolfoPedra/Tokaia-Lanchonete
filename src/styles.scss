@@ -1,30 +1,9 @@
-// Variaveis do grid
-$cols: 12;
-$gutter: 20px;
-$l-device: 1200px;
-$m-device: 760px;
-$s-device: 480px;
-
+@import "./assets/scss/reset";
+@import "./assets/scss/global";
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-@mixin d($size) {
-  @if $size == l {
-    @media screen and (min-width: #{$l-device}) {
-      @content;
-    }
-  } @else if $size == m {
-    @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}) {
-      @content;
-    }
-  } @else if $size == s {
-    @media screen and (max-width: #{$m-device - 1}) {
-      @content;
-    }
-  }
 }
 
 @function grid($col, $offset: false) {
@@ -117,8 +96,26 @@ $s-device: 480px;
 }
 
 body {
-  background: #F4F4F0;
-  border: 8px solid #FDCB4D;
+  background: #f4f4f0;
+  border: 8px solid #fdcb4d;
   color: #000002;
   height: 100vh;
+  @include d(s) {
+    border: none;
+    height: none;
+  }
+}
+
+.globalTitle {
+  position: absolute;
+  top: 75px;
+  width: 100%;
+  height: 34px;
+  text-align: center;
+  border-bottom: 2px solid #fbe070;
+  h1 {
+    font-size: 24px;
+    color: $preto;
+    font-weight: bolder;
+  }
 }

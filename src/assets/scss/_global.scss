@@ -1,0 +1,35 @@
+$cols: 12;
+$gutter: 20px;
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+$ss-device: 380px;
+
+$preto: #000002;
+$sombra: rgba(0, 0, 0, 0.25);
+
+@mixin d($size) {
+  @if $size == l {
+    @media screen and (min-width: #{$l-device}) {
+      @content;
+    }
+  } @else if $size == m {
+    @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}) {
+      @content;
+    }
+  } @else if $size == s {
+    @media screen and (max-width: #{$m-device - 1}) {
+      @content;
+    }
+  } @else if $size == ss {
+    @media screen and (max-width: #{$ss-device - 1}) {
+      @content;
+    }
+  }
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}

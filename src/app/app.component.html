@@ -1,10 +1,20 @@
-<div class="container">
-  <div class="header">
-    <h1>teste componente {{title}}</h1>
-
-    <a [routerLink]="['/categories']">Categorias</a>
-    <br>
-    <a [routerLink]="['/categories',1,'products']">Produtos</a>
+<div class="appRoot container">
+  <div class="globalTitle">
+    <h1>TOKAIA LANCHONETE</h1>
+  </div>
+  <div class="menus">
+    <div class="icons">
+      <img src="../assets/icons/list-categories.svg" alt="Categorias de Produtos">
+      <a [routerLink]="['/categories']">Categorias</a>
+    </div>
+    <div class="icons">
+      <img src="../assets/icons/list-food.svg" alt="Pedidos realizados">
+      <a [routerLink]="['/categories',1,'products']">Produtos</a>
+    </div>
+    <div class="icons">
+      <img src="../assets/icons/payment.svg" alt="Pagar Finalizar Pedido">
+      <a [routerLink]="['/categories',1,'products']">Finalizar</a>
+    </div>
   </div>
   <router-outlet></router-outlet>
 </div>
