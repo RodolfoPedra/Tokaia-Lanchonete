@@ -1,9 +1,5 @@
-<p>products works!</p>
-
-<p>parêmtros {{queryParams}}</p>
-
-<button (click)="calcularSoma()" class="btn btn-primary">+</button>
-<button (click)="calcularSub()" class="btn btn-primary">-</button>
-<p>
-  {{ valorTotal }} <br>
-</p>
+<section class="listCards container">
+  <div class="cardThumb" *ngFor="let product of products[0]">
+    <app-cardproduct [product]="product"></app-cardproduct>
+  </div>
+</section>

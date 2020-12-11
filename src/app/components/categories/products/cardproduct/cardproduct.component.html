@@ -1,0 +1,9 @@
+<div class="thumb">
+  <span>{{product.nome}}</span>
+  <img src="../../../../assets/images/products/{{product.id}}.jpg" alt="">
+  <div class="btnAddSub">
+    <button (click)="subProduct(product)" class="btn btn-primary">-</button>
+    <p>{{ valorTotal }}</p>
+    <button (click)="addProduct(product)" class="btn btn-primary">+</button>
+  </div>
+</div>

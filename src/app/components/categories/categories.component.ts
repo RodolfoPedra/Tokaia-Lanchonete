@@ -8,45 +8,27 @@ import { TecprimedataService } from 'src/app/services/tecprimedata.service';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
-  categories = [
-    {
-      id: 1,
-      nome: 'Hambúrgueres',
-    },
-    {
-      id: 2,
-      nome: 'Refrigerantes',
-    },
-    {
-      id: 3,
-      nome: 'Sucos',
-    },
-    {
-      id: 4,
-      nome: 'Porções',
-    },
-  ];
+  categories: Array<any> = [];
 
   constructor(private Tecprimedata: TecprimedataService) {
-    // this.getCategories();
+    this.getCategories();
   }
 
   ngOnInit(): void {}
 
-  imprimeID(id: number) {
+  idCategory(id: number) {
     console.log('id da categoria: ', id);
   }
 
-  // getCategories() {
-  //   this.Tecprimedata.getCategories().subscribe(
-  //     data => {
-  //       this.categories = data;
-  //       console.log(this.categories);
-  //   },
-  //     error => {
-  //       console.error(error);
-
-  //   }
-  //   )
-  // }
+  getCategories() {
+    this.Tecprimedata.getCategories().subscribe(
+      (data) => {
+        this.categories.push(data);
+        console.log(this.categories[0]);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }

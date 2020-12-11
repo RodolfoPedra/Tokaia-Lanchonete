@@ -1,4 +1,4 @@
-export class Category {
-  public id: number;
-  public nome: string;
+export interface Category {
+  id: number;
+  nome: string;
 }

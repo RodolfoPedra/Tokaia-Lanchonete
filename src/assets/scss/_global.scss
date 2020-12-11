@@ -33,3 +33,62 @@ $sombra: rgba(0, 0, 0, 0.25);
   -moz-box-shadow: $shadow;
   box-shadow: $shadow;
 }
+
+// Estilos para os cards de categorias e produtos
+.listCards {
+  display: flex;
+  justify-content: space-evenly;
+  @include d(s) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @include d(s) {
+    .cardThumb:nth-child(even) {
+      padding-top: 20px;
+      padding-left: 20px;
+    }
+    .cardThumb:nth-child(odd) {
+      padding-bottom: 20px;
+    }
+  }
+
+  .thumb {
+    position: relative;
+    width: 180px;
+    height: 210px;
+    @include box-shadow(2px 2px 8px $sombra);
+    border-radius: 10px;
+    background-size: 100%;
+    padding: 5px;
+    margin-right: 20px;
+    @include d(s) {
+      width: 160px;
+      height: 190px;
+      margin-right: 0;
+    }
+    @include d(ss) {
+      width: 120px;
+      height: 150px;
+      margin-right: 0;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 16px;
+      color: #f4f4f0;
+      text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+      z-index: 10;
+      position: absolute;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px;
+    }
+  }
+}

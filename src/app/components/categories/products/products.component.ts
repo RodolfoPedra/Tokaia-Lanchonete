@@ -1,36 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Products } from 'src/app/models/products.model';
+import { TecprimedataService } from 'src/app/services/tecprimedata.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
   queryParams: number;
-  value1: number;
-  value2: number;
-  valorTotal: number = 0;
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.params.subscribe(param => {
+
+  products: Array<Products[]> = [];
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private Tecprimedata: TecprimedataService
+  ) {
+    this.activatedRoute.params.subscribe((param) => {
       this.queryParams = param.id;
-    })
+    });
   }
 
   ngOnInit(): void {
-    this.mostrarParams()
+    this.getProducts(+this.queryParams);
   }
 
-  mostrarParams() {
-    console.log('params ',this.queryParams);
-
-  }
-
-  calcularSoma() {
-    this.valorTotal ? (this.valorTotal += 1) : (this.valorTotal = 1);
-  }
-
-  calcularSub() {
-    this.valorTotal ? (this.valorTotal -= 1) : 0;
+  getProducts(id: number) {
+    const resProd = this.Tecprimedata.getProducts(id);
+    resProd.then((res) => this.products.push(res));
   }
 }
