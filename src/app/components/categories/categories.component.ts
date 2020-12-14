@@ -16,15 +16,10 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  idCategory(id: number) {
-    console.log('id da categoria: ', id);
-  }
-
   getCategories() {
     this.Tecprimedata.getCategories().subscribe(
       (data) => {
         this.categories.push(data);
-        console.log(this.categories[0]);
       },
       (error) => {
         console.error(error);

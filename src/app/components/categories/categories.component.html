@@ -1,6 +1,6 @@
 <section class="listCards container">
   <div class="cardThumb" *ngFor="let category of categories[0]">
-    <div [routerLink]="['/categories',category.id,'products']" class="thumb" (click)="idCategory(category.id)">
+    <div [routerLink]="['/categories',category.id,'products']" class="thumb">
       <span>{{category.nome}}</span>
       <img src="../../../assets/images/categories/{{category.id}}.jpg" alt="">
     </div>

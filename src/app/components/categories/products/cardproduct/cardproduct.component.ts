@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Products } from 'src/app/models/products.model';
+import { TecprimedataService } from 'src/app/services/tecprimedata.service';
 
 
 @Component({
@@ -12,23 +13,20 @@ export class CardproductComponent implements OnInit {
   valorTotal: number = 0;
   @Input() product : Products;
 
-  constructor() { }
+  constructor(private TecprimeData: TecprimedataService) { }
 
-  ngOnInit(): void {
-    console.log('prod do card: ', this.product);
-
-  }
+  ngOnInit(): void { }
 
   addProduct(product: Products) {
     this.valorTotal ? (this.valorTotal += 1) : (this.valorTotal = 1);
+    console.log('prod add: ', product);
+    this.TecprimeData.postListDemand(product);
+
   }
 
-  subProduct(product: Products) {
+  removeProduct(productId: number) {
     this.valorTotal ? (this.valorTotal -= 1) : 0;
+    console.log('prod sub: ', productId);
+    this.TecprimeData.deleteListDemand(productId);
   }
-
-  idProduct(id: number) {
-    console.log('id da produto: ', id);
-  }
-
 }
