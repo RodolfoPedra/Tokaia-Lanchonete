@@ -19,14 +19,12 @@ export class CardproductComponent implements OnInit {
 
   addProduct(product: Products) {
     this.valorTotal ? (this.valorTotal += 1) : (this.valorTotal = 1);
-    console.log('prod add: ', product);
     this.TecprimeData.postListDemand(product);
 
   }
 
   removeProduct(productId: number) {
     this.valorTotal ? (this.valorTotal -= 1) : 0;
-    console.log('prod sub: ', productId);
     this.TecprimeData.deleteListDemand(productId);
   }
 }
