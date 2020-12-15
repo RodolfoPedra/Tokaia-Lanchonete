@@ -1,5 +1,8 @@
 <div class="thumb">
-  <span>{{product.nome}}</span>
+  <div class="namePrice">
+    <span>{{product.nome}}</span>
+    <span>R$ {{formatPrice(product.preco)}}</span>
+  </div>
   <img src="../../../../assets/images/products/{{product.id}}.jpg" alt="">
   <div class="btnAddSub">
     <button (click)="removeProduct(product.id)" class="btn btn-primary">-</button>

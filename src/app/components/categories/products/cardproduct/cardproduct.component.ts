@@ -20,11 +20,14 @@ export class CardproductComponent implements OnInit {
   addProduct(product: Products) {
     this.valorTotal ? (this.valorTotal += 1) : (this.valorTotal = 1);
     this.TecprimeData.postListDemand(product);
-
   }
 
   removeProduct(productId: number) {
     this.valorTotal ? (this.valorTotal -= 1) : 0;
-    this.TecprimeData.deleteListDemand(productId);
+    this.TecprimeData.deleteListDemandCard(productId);
+  }
+
+  formatPrice(price: number) {
+    return price.toFixed(2).replace('.',',');
   }
 }

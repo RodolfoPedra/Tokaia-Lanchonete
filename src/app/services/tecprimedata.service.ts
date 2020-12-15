@@ -26,8 +26,14 @@ export class TecprimedataService {
     return json;
   }
 
-  public getListDemand(): Observable<Products> {
-    return this.http.get<Products>(`http://localhost:3000/demand`);
+  public async getListDemand() {
+    const res = await fetch(`http://localhost:3000/demand`, {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+    });
+    const json = await res.json();
+    return json;
   }
 
   async postListDemand(product: Products) {
@@ -42,13 +48,25 @@ export class TecprimedataService {
     return json;
   }
 
-  async deleteListDemand(productId: number) {
-    const res = await fetch(`http://localhost:3000/demand`, {
+  async deleteListDemandCard(productId: number) {
+    const res = await fetch(`http://localhost:3000/demand/card`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify({productId}),
+    });
+    const json = await res.json();
+    return json;
+  }
+
+  async deleteListDemandList(indexID: number) {
+    const res = await fetch(`http://localhost:3000/demand/list`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify({indexID}),
     });
     const json = await res.json();
     return json;

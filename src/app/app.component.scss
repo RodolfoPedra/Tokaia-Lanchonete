@@ -11,7 +11,7 @@
 .menus {
   width: 291px;
   height: 74px;
-  background: #fdcb4d;
+  background: #fec63e;
   @include box-shadow(2px 2px 8px $sombra);
   border-radius: 20px;
   display: flex;
@@ -23,5 +23,9 @@
   .icons {
     display: flex;
     flex-direction: column;
+
+    a {
+      font-family: $Roboto;
+    }
   }
 }

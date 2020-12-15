@@ -1,7 +1,18 @@
-<section>
-  <ul *ngFor="let product of products[0]">
-    <li>{{product.nome}}</li>
-    <li>{{product.descricao}}</li>
-    <li>{{product.preco}}</li>
-  </ul>
+<section class="infoDemands">
+  <div class="listDemands grid-8">
+    <ul class="itemDemand grid-12" *ngFor="let product of products[0]">
+      <li class="fontStyle">{{product.nome}}</li>
+      <li>{{product.descricao}}</li>
+      <li class="price fontStyle">R$ {{formatPrice(product.preco)}}</li>
+    </ul>
+  </div>
+  <div class="listFinalDemands grid-3">
+    <h1>Total do pedido</h1>
+    <span>R$ {{valorTotal}}</span>
+    <div class="removeProduct" *ngIf="removeProduct.length >= 1">
+      <p>{{removeProduct.length}} produtos selecionados</p>
+      <button (click)="confirmRemoveMass()">Remover</button>
+    </div>
+  </div>
+
 </section>

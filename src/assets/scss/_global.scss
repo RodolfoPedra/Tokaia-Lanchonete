@@ -1,5 +1,17 @@
 $cols: 12;
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf") format("ttf"),
+    url("../fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format("ttf"),
+    url("../fonts/Roboto/Roboto-Bold.ttf") format("ttf");
+}
 $gutter: 20px;
+
 $l-device: 1200px;
 $m-device: 760px;
 $s-device: 480px;
@@ -7,6 +19,8 @@ $ss-device: 380px;
 
 $preto: #000002;
 $sombra: rgba(0, 0, 0, 0.25);
+$Roboto: "Roboto";
+$IBM: "IBM Plex Mono";
 
 @mixin d($size) {
   @if $size == l {
@@ -41,6 +55,8 @@ $sombra: rgba(0, 0, 0, 0.25);
   @include d(s) {
     flex-wrap: wrap;
     justify-content: center;
+    height: 420px;
+    overflow-y: scroll;
   }
 
   @include d(s) {
@@ -50,6 +66,13 @@ $sombra: rgba(0, 0, 0, 0.25);
     }
     .cardThumb:nth-child(odd) {
       padding-bottom: 20px;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 
@@ -72,14 +95,18 @@ $sombra: rgba(0, 0, 0, 0.25);
       height: 150px;
       margin-right: 0;
     }
-
-    span {
-      font-weight: bold;
-      font-size: 16px;
-      color: #f4f4f0;
-      text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
-      z-index: 10;
+    .namePrice {
+      font-family: $Roboto;
       position: absolute;
+      z-index: 10;
+      span {
+        font-weight: bold;
+        font-size: 16px;
+        color: #f4f4f0;
+        text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black,
+          0 -0.5px black;
+        display: block;
+      }
     }
 
     img {
